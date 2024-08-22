@@ -1,55 +1,37 @@
 import { useEffect, useRef } from 'react';
-import logo from '../assets/images/logo.png';
-import { NavLink } from 'react-router-dom';
-import userimage from '../assets/images/avatar-icon.png';
-import {BiMenu} from 'react-icons/bi';
+import logo from './assets/images/logo.png';
+import { NavLink, Link } from 'react-router-dom';
+import userimage from './assets/images/avatar-icon.png';
+import { BiMenu } from 'react-icons/bi';
 
 const navlinks = [
-  {
-    path: "/home",
-    display: "Home",
-  },
-  {
-    path: "/doctors",
-    display: "Find a Doctor",
-  },
-  {
-    path: "/services",
-    display: "Services",
-  },
-  {
-    path: "/contact",
-    display: "Contact",
-  }
-]
+  { path: "/home", display: "Home" },
+  { path: "/doctors", display: "Find a Doctor" },
+  { path: "/services", display: "Services" },
+  { path: "/contact", display: "Contact" }
+];
 
 const Header = () => {
+  const headerRef = useRef(null);
 
-        const headerRefuseef = useRef(null)
-        
-        const useRef = useReff(null)
-        
-        const handlestickylleader = () =>{
-            window.addEventListener("scroll", () => {
-        
-        if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){ 
-            headerRef.current.classList.remove("sticky_header")
-        }
-        else{
-        headerRef.current.classList.remove('sticky_header')
-        }
-    })
-}
-        
-        useEffect(() => {
-        
-        handlestickyheader()
-        
-        return () => window.removeEventListener('scroll', handlestickyleader);
-        })
-        
+  const handleStickyHeader = () => {
+    window.addEventListener("scroll", () => {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        headerRef.current.classList.add("sticky_header");
+      } else {
+        headerRef.current.classList.remove("sticky_header");
+      }
+    });
+  };
+
+  useEffect(() => {
+    handleStickyHeader();
+
+    return () => window.removeEventListener('scroll', handleStickyHeader);
+  }, []);
+
   return (
-    <header className="header flex items-center">
+    <header ref={headerRef} className="header flex items-center">
       <div className="container">
         <div className="flex items-center justify-between">
           <div>
@@ -74,17 +56,19 @@ const Header = () => {
             </ul>
           </div>
           <div>
-            <Link to='/'>
-            <figure className='w-[35px] h-[35px] rounded-full'>
-                <img src={userimage} alt='User' />
-            </figure>
+            <Link to="/">
+              <figure className="w-[35px] h-[35px] rounded-full">
+                <img src={userimage} alt="User" />
+              </figure>
             </Link>
           </div>
-          <Link to= '/login'>
-          <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]'>Login</button>
+          <Link to="/login">
+            <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">
+              Login
+            </button>
           </Link>
-          <span className='md:hidden'>
-            <BiMenu className='w-6 h-6 cursor-pointer' />
+          <span className="md:hidden">
+            <BiMenu className="w-6 h-6 cursor-pointer" />
           </span>
         </div>
       </div>
