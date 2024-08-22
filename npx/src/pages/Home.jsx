@@ -2,9 +2,11 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+  <section className='hero_selectin pt-[60px] '>
+
+  </section>
+    </>
   )
 }
 

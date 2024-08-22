@@ -11,18 +11,25 @@
 
 
 @layer components {
-  .container {
-    @apply mx-w-full w-[1440px] px-5 mx-auto;
+  
+  .container{
+    @apply max-w-full w-[1440px] px-5 mx-auto;
   }
 
   .btn{
-    @apply bg-primaryColor py-[15px] rounded-[50px] font-[600] mt-[38px];
+    @apply bg-[#yourColorCodeHere] py-[15px] rounded-[50px] font-[600] mt-[38px];
   }
   .heading{
     @apply text-[44px] font-[700] leading-[54px]text-headingColor;
   }
   .text_para{
     @apply text-[18px] leading-[30px] text-textColor font-[400] mt-[18px];
+  }
+  .header{
+    @apply bg-[url('./assates/images/hero-bg.png')] bg-no-repeat bg-cover bg-center w-full h-[100px] leading-[100px];
+  }
+  .hero_section{
+    @apply bg-[url('./assates/images/hero_bg.png')] bg-no-repeat bg-cover bg-center;
   }
   @media only screen and (max-width: 1024px){
     .container{
